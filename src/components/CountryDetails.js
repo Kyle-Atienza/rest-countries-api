@@ -9,15 +9,6 @@ function CountryDetails() {
     const location = useLocation()
     const {selectedCountry, allCountries} = location.state
 
-    const [country, setCountry] = useState({})
-
-    const fetchAllCountries = async () => {
-        await axios.get("https://restcountries.com/v2/all")
-            .then (res => {
-                setCountry(res.data)
-            })
-    }
-
     const {
         flag,
         name,
@@ -30,8 +21,7 @@ function CountryDetails() {
     } = selectedCountry
 
     useEffect(() => {
-        fetchAllCountries()
-        console.log(country)
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
