@@ -37,6 +37,7 @@ function CountryDetails() {
         if (country && countryPath !== country.alpha3Code){
             window.location.href=`/${countryPath}`
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryPath])
 
     const countryDetails = country && countries ? (
