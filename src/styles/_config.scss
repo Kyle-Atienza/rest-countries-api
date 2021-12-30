@@ -1,0 +1,58 @@
+$light-mode-primary: #111517;
+$light-mode-secondary: hsl(0, 0%, 52%);
+$light-mode-background: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    background: $light-mode-background;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $light-mode-primary
+}
+h3{
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: $light-mode-primary
+}
+h4{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $light-mode-primary
+}
+p{
+    margin: 0;
+    color: $light-mode-primary
+}
+a{
+    text-decoration: none;
+    color: $light-mode-primary
+}
+.data-header{
+    font-size: 1rem;
+    font-weight: 600;
+    color: $light-mode-primary
+}
+
+input::placeholder, .dropdown-toggle{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.form-control{
+    border: 0;
+    background: $white;
+}
+.card{
+    border: 0;
+}
+.dropdown{
+    background: $white;
+}

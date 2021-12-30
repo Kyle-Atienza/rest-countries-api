@@ -1,26 +1,31 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './styles/styles.scss';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import Home from './components/Home/Home';
-import CountryDetails from './components/CountryDetails';
+import Home from './pages/Home';
+import CountryDetails from './pages/CountryDetails';
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1>Where in the World?</h1>
+    <BrowserRouter>
+      <div className="App">
+        <div className="header shadow-sm">
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <Link
+                  to={"/"}>
+                  <h1 className='my-4'>Where in the World?</h1>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:countryPath" element={<CountryDetails />} />
+          </Routes>
       </div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:countryPath" element={<CountryDetails />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    </BrowserRouter>
   );
 }
 

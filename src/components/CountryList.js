@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+import Loader from './Loader'
+
 function CountryList({region, searchKey}) {
     const [countries, setCountries] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -68,34 +70,34 @@ function CountryList({region, searchKey}) {
 
     const countryResult = countries.map(country => {
         return(
-            <div className="card col-4" key={countries.indexOf(country)}>
-                <Link
-                    to={`/${country.name}`}
-                    state={{
-                        selectedCountry: country,
-                        allCountries: countries
-                    }}
-                    >
-                    <img src={country.flag} className="img-fluid" alt="" />
-                    <div className="card-body">
-                        <h3>{country.name}</h3>
-                        <p>Population: {country.population}</p>
-                        <p>Region: {country.region}</p>
-                        <p>Capital: {country.capital}</p>
-                    </div>
-                </Link> 
+            <div className="country-card col-lg-3 col-md-4 col-sm-6 col-12 px-4">
+                <div className="card shadow-sm p-0 h-100 flex-grow-1" key={countries.indexOf(country)}>
+                    <Link
+                        className='d-flex flex-column h-100'
+                        to={`/${country.alpha3Code}`}>
+                        <div className="card-image h-50">
+                            <img src={country.flag} className="country-card-image img-fluid " alt="" />
+                        </div>
+                        <div className="card-body h-50">
+                            <h3>{country.name}</h3>
+                            <p><span className='data-header'>Population:</span> {country.population}</p>
+                            <p><span className='data-header'>Region:</span> {country.region}</p>
+                            <p><span className='data-header'>Capital:</span> {country.capital}</p>
+                        </div>
+                    </Link> 
+                </div>
             </div>
         )
     })
 
     const isResultLoading = isLoading ? (
-        <p>Loading...</p>
+        <Loader />
     ) : (
         null
     )
 
     return (
-        <div className="row">
+        <div className="country-list g-sm-5 gy-5 row">
             {isResultLoading}
             {countryResult}
         </div>
